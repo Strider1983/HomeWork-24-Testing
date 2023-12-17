@@ -26,7 +26,7 @@ public class CalculatorServiceImplTest {
     @Test
     public void calculateMultiplectionCorrectly() {
         int num1 = 10, num2 = 20;
-        int expectedResult = num1 + num2;
+        int expectedResult = num1 * num2;
 
         int actualResult = calculatorService.multiply(num1, num2);
 
@@ -35,9 +35,9 @@ public class CalculatorServiceImplTest {
     @Test
     public void calculateDivisionCorrectly() {
         int num1 = 10, num2 = 20;
-        int expectedResult = num1 + num2;
+        double expectedResult = (double) num1 / num2;
 
-        int actualResult = calculatorService.plus(num1, num2);
+        double actualResult = calculatorService.divide(num1, num2);
 
         Assertions.assertEquals(expectedResult, actualResult);
     }
