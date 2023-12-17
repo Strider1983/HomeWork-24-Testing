@@ -19,19 +19,34 @@ public class CalculatorContoller {
         return "Добро пожаловать в калькулятор";
     }
     @GetMapping("plus")
-    public String plus(int num1, int num2) {
-        return num1 + " + " + num2;
+    public String plus(
+            @RequestParam(name = "num1", required = false) Integer num1,
+            @RequestParam(name = "num2", required = false) Integer num2
+    ) {
+        if (num1 == null || num2 == null) {
+            return "Неправильно!!!";
+        }
+        return num1 + " + " + num2 + " = " + calculatorService.plus(num1, num2);
     }
     @GetMapping("minus")
-    public String minus(int num1, int num2) {
-        return num1 + " - " + num2;
+    public String minus(
+            @RequestParam(name = "num1", required = false) Integer num1,
+            @RequestParam(name = "num2", required = false) Integer num2
+    ) {
+        return num1 + " - " + num2 + " = " + calculatorService.minus(num1, num2);
     }
     @GetMapping("multiply")
-    public String multiply(int num1, int num2) {
-        return num1 + " x " + num2;
+    public String multiply(
+            @RequestParam(name = "num1", required = false) Integer num1,
+            @RequestParam(name = "num2", required = false) Integer num2
+    ) {
+        return num1 + " x " + num2 + " = " + calculatorService.multiply(num1, num2);
     }
     @GetMapping("divide")
-    public String divide(int num1, int num2) {
-        return num1 + " : " + num2;
+    public String divide(
+            @RequestParam(name = "num1", required = false) Integer num1,
+            @RequestParam(name = "num2", required = false) Integer num2
+    ) {
+        return num1 + " : " + num2 + " = " + calculatorService.divide(num1, num2);
     }
 }
