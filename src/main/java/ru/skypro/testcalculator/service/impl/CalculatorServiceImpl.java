@@ -1,6 +1,7 @@
 package ru.skypro.testcalculator.service.impl;
 
 import org.springframework.stereotype.Service;
+import ru.skypro.testcalculator.exeption.DivisionByZeroExeption;
 import ru.skypro.testcalculator.service.CalculatorService;
 
 @Service
@@ -22,6 +23,10 @@ public class CalculatorServiceImpl implements CalculatorService {
 
     @Override
     public double divide(int num1, int num2) {
+        if (num2 == 0) {
+            throw new DivisionByZeroExeption("На ноль делить нельзя");
+        }
         return (double) num1 / num2;
+
     }
 }
